@@ -12,13 +12,16 @@ export const Card = props => {
 
         <div className="container">
             <div className="card" style={{ width: "18rem" }}>
-                <img className=""  src={imgGrey} />
+                <img className="" src={imgGrey} />
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">{props.gender}</p>
                     <p className="card-text">{props.hair_color}</p>
                     <p className="card-text">{props.eye_color}</p>
-                    <a href="#" className="btn btn-primary">Learn more!</a>
+                    <div className="d-flex justify-content-between">
+                        <a href="#" className="btn btn-outline-primary">Learn more!</a>
+                        <a href="#" className="btn btn-outline-warning"><i className="fa-regular fa-heart" style={{ color: "#fdf51c" }}></i></a>
+                    </div>
                 </div>
             </div>
         </div>
