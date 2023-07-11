@@ -10,9 +10,11 @@ export const Card = props => {
 
     return (
 
-        <div className="container">
+        <div className="me-3 my-3">
             <div className="card" style={{ width: "18rem" }}>
-                <img className="" src={imgGrey} />
+                <img className="" src={props.id === "1" ? props.type === "planets" ? "https://starwars-visualguide.com/assets/img/placeholder.jpg" : "https://starwars-visualguide.com/assets/img/"+ props.type + "/" + props.id + ".jpg" : "https://starwars-visualguide.com/assets/img/"+props.type + "/" + props.id + ".jpg"} />
+                
+
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">{props.gender}</p>
@@ -39,5 +41,5 @@ Card.propTypes = {
     gender: PropTypes.string,
     hair_color: PropTypes.string,
     eye_color: PropTypes.string,
-    id: PropTypes.string
+    id: PropTypes.string,
 };

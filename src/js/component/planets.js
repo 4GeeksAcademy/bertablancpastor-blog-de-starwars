@@ -11,11 +11,12 @@ export const Planets = () => {
 
     return (
         <div className="m-5  ">
-            <h2 className="text-danger ms-5 d-flex justify-content-start">
+            <h2 className="text-danger mb-4 d-flex justify-content-start">
                 Planets
             </h2>
             <div className="d-flex overflow-x-auto">{planetsMap.map(item => (
                 <Card
+                    type={"planets"}
                     id={item.uid}
                     key={item.uid}
                     name={item.name}

@@ -26,6 +26,4 @@ export const Home = () => {
 
 	);
 
-
-	
 	};

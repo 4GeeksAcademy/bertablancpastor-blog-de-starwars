@@ -12,11 +12,12 @@ export const Vehicles = () => {
 
     return (
         <div className="m-5 ">
-            <h2 className="text-danger ms-5 d-flex justify-content-start">
+            <h2 className="text-danger mb-4 d-flex justify-content-start">
                 Vehicles
             </h2>
             <div className="d-flex overflow-x-auto">{vehiclesMap.map(item => (
                 <Card
+                    type={"vehicles"}
                     id={item.uid}
                     key={item.uid}
                     name={item.name}
