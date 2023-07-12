@@ -18,12 +18,10 @@ export const Home = () => {
 
 	return (
 		<div className="mt-5">
-		<Characters/>
-		<Planets />
-		<Vehicles />
-
-	</div>
-
+			<Characters />
+			<Planets />
+			<Vehicles />
+		</div>
 	);
 
 	};

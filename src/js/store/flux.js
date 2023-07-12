@@ -1,9 +1,13 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			character: [],
 			characters: [],
+			planet: [],
 			planets: [],
-			vehicles: []			
+			vehicle: [],
+			vehicles: [],
+			favorties: [],			
 		},
 		actions: {
 			// 1. Obteniendo los personajes de la API
@@ -13,11 +17,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then(data => {
-						setStore({ characters: data.results});
+						setStore({ ...getStore , characters: data.results});
 						console.log(data.results);
 					})// => guardo el json en un espacio de memoria
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
 			},
+
+			// 1.1 Obteniendo un personaje de la API
+			getCharacter: (id) => {
+				fetch("https://www.swapi.tech/api/people/" + id, {
+					method: "GET",
+				})
+					.then((response) => response.json())
+					.then(data => {
+						setStore({ ...getStore , character: data.result});
+						console.log(data.results);
+					})// => guardo el json en un espacio de memoria
+					.catch((error) => console.log(error))// => te aviso si algo sale mal
+			},
+
 			// 2. Obteniendo los planetas de la API
 			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets/", {
@@ -25,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then(data => {
-						setStore({ planets: data.results });
+						setStore({ ...getStore , planets: data.results });
 						console.log(data);
 					})// => guardo el json en un espacio de memoria
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
@@ -37,12 +55,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then((response) => response.json())
 					.then(data => {
-						setStore({ vehicles: data.results });
+						setStore({ ...getStore , vehicles: data.results });
 						console.log(data);
 					})// => guardo el json en un espacio de memoria
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
 			},
 			
+			//3. Añadir a favortios
+			// addFavorites: (favorite) => {
+			// 	const {favorites} = getStore()
+			// 	const favoritesState = [...favorites.filter(({uuid}) => uuid !== favorite.uuid)];
+
+			// 	setStore({...getStore(), favorites: favoritesState})
+			// } 
 		}
 	};
 };
