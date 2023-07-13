@@ -36,6 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
 			},
 
+
 			// 2. Obteniendo los planetas de la API
 			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets/", {
@@ -48,7 +49,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})// => guardo el json en un espacio de memoria
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
 			},
-			// 2. Obteniendo los coches de la API
+			// 2.1 Obteniendo un planeta de la API
+			getPlanet: () => {
+				fetch("https://www.swapi.tech/api/planets/" + id, {
+					method: "GET",
+				})
+					.then((response) => response.json())
+					.then(data => {
+						setStore({ ...getStore , planet: data.result});
+						console.log(data.results);
+					})// => guardo el json en un espacio de memoria
+					.catch((error) => console.log(error))// => te aviso si algo sale mal
+			},
+
+
+			// 3. Obteniendo los coches de la API
 			getVehicles: () => {
 				fetch("https://www.swapi.tech/api/vehicles/", {
 					method: "GET",
@@ -62,12 +77,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			
 			//3. Añadir a favortios
-			// addFavorites: (favorite) => {
-			// 	const {favorites} = getStore()
-			// 	const favoritesState = [...favorites.filter(({uuid}) => uuid !== favorite.uuid)];
+			addFavorites: (favorite) => {
+				const { favorites } = getStore()
+				const favoritesState = [...favorites.filter(({uuid}) => uuid !== favorite.uuid)];
 
-			// 	setStore({...getStore(), favorites: favoritesState})
-			// } 
+				setStore({...getStore(), favorites: favoritesState})
+			} 
 		}
 	};
 };

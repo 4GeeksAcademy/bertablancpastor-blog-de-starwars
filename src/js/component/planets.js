@@ -20,7 +20,7 @@ export const Planets = () => {
                     id={item.uid}
                     key={item.uid}
                     name={item.name}
-                    route={`/planets-details/${item.uid}`}
+                    route={`/planets/${item.uid}`}
                 />
             ))}
             </div>
