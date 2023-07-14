@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link, Navigate, Route, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import "../../styles/card.css";
 
 
 export const Card = props => {
@@ -23,7 +24,7 @@ export const Card = props => {
                         {/* OPCIÓN del boton con useNavigate */}
                         {/* <button className="btn btn-outline-primary" onClick={e => navigate(props.route)}>Learn more!</button> */}
                         <span className="btn btn-outline-warning" onClick={() => actions.addFavorites(props.name)} >
-                            <i className="fa-regular fa-heart" style={{ color: "#fdf51c" }}></i>
+                            <i id="hover-black-heart" className="fa-regular fa-heart  " style={{ color: "#fdf51c"}}></i>
                         </span>
                     </div>
                 </div>
