@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			vehicle: [],
 			vehicles: [],
-			favorties: [],			
+			favorites: [],
+			favorite: []			
 		},
 		actions: {
 			// 1. Obteniendo los personajes de la API
@@ -91,11 +92,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			//3. Añadir a favortios
 			addFavorites: (favorite) => {
-				const { favorites } = getStore()
-				const favoritesState = [...favorites.filter(({uuid}) => uuid !== favorite.uuid)];
+				const favoritesState = getStore().favorites.concat(favorite);
+				setStore({...getStore, favorites: favoritesState})
+			},
+			
+			//4. Eliminar favorito
+			deleteFavorite: (name) => {
+				const store = getStore()
+				const newFavorite = store.favorites.filter((item) => item !== name);
+				console.log(newFavorite);
+				console.log(name);
 
-				setStore({...getStore(), favorites: favoritesState})
-			} 
+				setStore({favorites: newFavorite});
+		
+			}
 		}
 	};
 };

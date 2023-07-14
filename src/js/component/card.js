@@ -8,8 +8,6 @@ export const Card = props => {
     const { store, actions } = useContext(Context);
     // Opción con useNavigate()
     // const navigate = useNavigate()
-    console.log(props.route);
-
 
     return (
 
@@ -24,7 +22,9 @@ export const Card = props => {
                         </Link>
                         {/* OPCIÓN del boton con useNavigate */}
                         {/* <button className="btn btn-outline-primary" onClick={e => navigate(props.route)}>Learn more!</button> */}
-                        <a href="#" className="btn btn-outline-warning"><i className="fa-regular fa-heart" style={{ color: "#fdf51c" }}></i></a>
+                        <span className="btn btn-outline-warning" onClick={() => actions.addFavorites(props.name)} >
+                            <i className="fa-regular fa-heart" style={{ color: "#fdf51c" }}></i>
+                        </span>
                     </div>
                 </div>
             </div>
