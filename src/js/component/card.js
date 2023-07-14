@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Link, Navigate, Route, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
@@ -9,6 +9,14 @@ export const Card = props => {
     const { store, actions } = useContext(Context);
     // Opción con useNavigate()
     // const navigate = useNavigate()
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    const toggleFavorite = () => {
+      setIsFavorite(!isFavorite);
+      if (!isFavorite) {
+        actions.addFavorites(props.name);
+      }
+    };
 
     return (
 
@@ -23,8 +31,8 @@ export const Card = props => {
                         </Link>
                         {/* OPCIÓN del boton con useNavigate */}
                         {/* <button className="btn btn-outline-primary" onClick={e => navigate(props.route)}>Learn more!</button> */}
-                        <span className="btn btn-outline-warning" onClick={() => actions.addFavorites(props.name)} >
-                            <i id="hover-black-heart" className="fa-regular fa-heart  " style={{ color: "#fdf51c"}}></i>
+                        <span className="btn btn-outline-warning" onClick={toggleFavorite} >
+                        <i id="hover-black-heart" className={isFavorite ? "fa-solid fa-heart" : "fa-regular fa-heart"} style={{ color: isFavorite ? "black" : "#fdf51c" }}></i>
                         </span>
                     </div>
                 </div>
