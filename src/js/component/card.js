@@ -8,6 +8,7 @@ export const Card = props => {
     const { store, actions } = useContext(Context);
     // Opción con useNavigate()
     // const navigate = useNavigate()
+    console.log(props.route);
 
 
     return (

@@ -21,6 +21,7 @@ export const Vehicles = () => {
                     id={item.uid}
                     key={item.uid}
                     name={item.name}
+                    route={`/vehicles/${item.uid}`}
                 />
             ))}
             </div>

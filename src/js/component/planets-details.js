@@ -5,15 +5,14 @@ import PropTypes from "prop-types";
 
 import "../../styles/demo.css";
 
-export const CharactersDetails = () => {
+export const PlanetsDetails = () => {
     const { store, actions } = useContext(Context);
     const params = useParams()
 
     useEffect(() => {
-        actions.getCharacter(params.id)
+        actions.getPlanet(params.id)
 
     }, []);
-
 
     return (
         <>
@@ -23,7 +22,7 @@ export const CharactersDetails = () => {
                         <img className="" src={params.id === "1" ? params.type === "planets" ? "https://starwars-visualguide.com/assets/img/placeholder.jpg" : "https://starwars-visualguide.com/assets/img/" + params.type + "/" + params.id + ".jpg" : "https://starwars-visualguide.com/assets/img/" + params.type + "/" + params.id + ".jpg"} />
                     </div>
                     <div className="p-5">
-                        <h1 className="text-center">{store.character.properties?.name}</h1>
+                        <h1 className="text-center">{store.planet?.properties?.name}</h1>
                         <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae nibh aliquam, mattis ligula eget, lobortis enim. Integer et nisi pharetra, fringilla libero sit amet, porttitor odio. Sed posuere tellus non viverra congue. Cras tempus tortor eu mi porta, quis facilisis nunc mollis. Cras diam enim, cursus in bibendum vel, blandit non sem. Cras a molestie enim. Sed finibus tempor nisl at tempus. Cras ultrices magna sed enim vestibulum suscipit.
                         </p>
                     </div>
@@ -35,39 +34,39 @@ export const CharactersDetails = () => {
                             Name
                         </div>
                         <div className="col-2 fw-semibold">
-                            Birth Year
+                            Climate
                         </div>
                         <div className="col-2 fw-semibold">
-                            Gender
+                            Population
                         </div>
                         <div className="col-2 fw-semibold">
-                            Height
+                            Orbital Period
                         </div>
                         <div className="col-2 fw-semibold">
-                            Skin Color
+                            Rotation Period
                         </div>
                         <div className="col-2 fw-semibold">
-                            Eye Color
+                            Diameter
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2">
-                            {store.character.properties?.name}
+                            {store.planet?.properties?.name}
                         </div>
                         <div className="col-2">
-                            {store.character.properties?.birth_year}
+                            {store.planet?.properties?.climate}
                         </div>
                         <div className="col-2">
-                            {store.character.properties?.gender}
+                            {store.planet?.properties?.population}
                         </div>
                         <div className="col-2">
-                            {store.character.properties?.height}
+                            {store.planet?.properties?.orbital_period}
                         </div>
                         <div className="col-2">
-                            {store.character.properties?.skin_color}
+                            {store.planet?.properties?.rotation_period}
                         </div>
                         <div className="col-2">
-                            {store.character.properties?.eye_color}
+                            {store.planet?.properties?.diameter}
                         </div>
                     </div>
                 </div>
@@ -79,14 +78,15 @@ export const CharactersDetails = () => {
     );
 };
 
-CharactersDetails.propTypes = {
+PlanetsDetails.propTypes = {
     name: PropTypes.string,
-    gender: PropTypes.string,
-    hair_color: PropTypes.string,
-    eye_color: PropTypes.string,
-    height: PropTypes.string,
-    skin_color: PropTypes.string,
+    climate: PropTypes.string,
+    population: PropTypes.string,
+    orbital_period: PropTypes.string,
+    rotation_period: PropTypes.string,
+    diameter: PropTypes.string,
     id: PropTypes.string,
     route: PropTypes.string
 };
+
 

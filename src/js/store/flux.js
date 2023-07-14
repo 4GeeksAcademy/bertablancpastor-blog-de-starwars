@@ -50,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
 			},
 			// 2.1 Obteniendo un planeta de la API
-			getPlanet: () => {
+			getPlanet: (id) => {
 				fetch("https://www.swapi.tech/api/planets/" + id, {
 					method: "GET",
 				})
@@ -71,6 +71,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then((response) => response.json())
 					.then(data => {
 						setStore({ ...getStore , vehicles: data.results });
+						console.log(data);
+					})// => guardo el json en un espacio de memoria
+					.catch((error) => console.log(error))// => te aviso si algo sale mal
+			},
+
+			// 3. Obteniendo un choche de la API
+			getVehicle: (id) => {
+				fetch("https://www.swapi.tech/api/vehicles/" + id , {
+					method: "GET",
+				})
+					.then((response) => response.json())
+					.then(data => {
+						setStore({ ...getStore , vehicle: data.result });
 						console.log(data);
 					})// => guardo el json en un espacio de memoria
 					.catch((error) => console.log(error))// => te aviso si algo sale mal
