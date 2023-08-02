@@ -16,8 +16,8 @@ export const PlanetsDetails = () => {
 
     return (
         <>
-            <div className="container ">
-                <div className="d-flex justify-content-center mx-auto w-75">
+            <div className="container pt-4 ">
+                <div className="d-flex justify-content-center mx-auto w-75 mt-2">
                     <div className="bg bg-secondary d-flex justify-content-evenly" style={{ width: "600px", height: "400px" }} >
                         <img className="" src={params.id === "1" ? params.type === "planets" ? "https://starwars-visualguide.com/assets/img/placeholder.jpg" : "https://starwars-visualguide.com/assets/img/" + params.type + "/" + params.id + ".jpg" : "https://starwars-visualguide.com/assets/img/" + params.type + "/" + params.id + ".jpg"} />
                     </div>

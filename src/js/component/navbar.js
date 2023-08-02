@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, useSyncExternalStore } from "react";
 import { Link } from "react-router-dom";
-import logoStarwars from "../../img/Star-Wars-Logo-5.png";
+import logoStarwars from "../../img/star-wars-yellow.png";
 import { Context } from "../store/appContext"
 
 
@@ -12,18 +12,18 @@ export const Navbar = (props) => {
 
 	return (
 
-		<nav className="navbar navbar-light bg-light fixed-top mb-3 ">
+		<nav className="navbar navbar-light bg-dark fixed-top mb-3 ">
 			<Link to="/">
 				<span className="navbar-brand mb-0 h1">
-					<img className="p-1 ms-5" style={{ height: "40px", }} src={logoStarwars} />
+					<img className="p-1 ms-5" style={{ height: "80px", }} src={logoStarwars} />
 				</span>
 			</Link>
 			<div className="me-5">
 				
 					<div className="dropdown me-5">
-						<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
-							<span className="btn btn-primary text-ligth">{favoritesMap.length > 0 ? favoritesMap.length : " " }</span>
+							<span className="btn btn-warningprimary text-ligth">{favoritesMap.length > 0 ? favoritesMap.length : " " }</span>
 						</button>
 						<ul className="dropdown-menu ">
 							{favoritesMap.map((item, i) => (
